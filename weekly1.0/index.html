@@ -1,135 +1,58 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weekly 2.0</title>
-  style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: url("../galaxie.jpg") no-repeat center center fixed;
-            background-size: cover;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            animation: fadeInBg 2s ease forwards;
-        }
-        /* Chakra animé en arrière-plan */
-        .chakra-bg {
-    position: absolute;
-    width: 350px;
-    opacity: 0.10;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: rotate 60s linear infinite, halo 6s ease-in-out infinite;
-    z-index: 1;
-}
+<style>
 
-        }
-        @keyframes rotate {
-            from { transform: translate(-50%, -50%) rotate(0deg); }
-            to { transform: translate(-50%, -50%) rotate(360deg); }
-        }
+  /* --- FOND GALAXIE --- */
+  body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      background-image: url("../galaxie.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+  }
 
-        @keyframes halo {
-            0% { filter: drop-shadow(0 0 5px #ffffff); }
-            50% { filter: drop-shadow(0 0 25px #a67bff); }
-            100% { filter: drop-shadow(0 0 5px #ffffff); }
-        }
+  /* --- CHAKRA ANIMÉ --- */
+  .chakra-bg {
+      position: absolute;
+      width: 350px;          /* Taille idéale */
+      opacity: 0.10;         /* Option B : visible mais zen */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: rotate 60s linear infinite, halo 6s ease-in-out infinite;
+      z-index: 1;            /* Derrière le panneau */
+  }
 
-        @keyframes fadeInBg {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+  @keyframes rotate {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to   { transform: translate(-50%, -50%) rotate(360deg); }
+  }
 
-        /* Panneau central glassmorphism */
-        .panel {
-            width: 80%;
-            max-width: 900px;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(12px);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
-            z-index: 2;
-            animation: slideUp 1.2s ease forwards;
-            opacity: 0;
-        }
+  @keyframes halo {
+      0%   { filter: drop-shadow(0 0 5px #ffffff); }
+      50%  { filter: drop-shadow(0 0 25px #a67bff); }
+      100% { filter: drop-shadow(0 0 5px #ffffff); }
+  }
 
-        @keyframes slideUp {
-            from { transform: translateY(60px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
+  /* --- PANNEAU CENTRAL --- */
+  .panel {
+      background: rgba(0, 0, 0, 0.55);
+      padding: 25px;
+      border-radius: 12px;
+      backdrop-filter: blur(6px);
+      text-align: center;
+      width: 80%;
+      max-width: 450px;
+      z-index: 2;            /* Devant le chakra */
+      color: #f5f5f5;
+      font-family: "Georgia", serif;
+  }
 
-        /* Tableau vertical */
-        .week {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .day {
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.18);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            font-size: 1.3rem;
-            color: white;
-            letter-spacing: 1px;
-            transition: 0.3s;
-        }
-
-        .day:hover {
-            background: rgba(255, 255, 255, 0.35);
-            transform: scale(1.02);
-            cursor: pointer;
-        }
-
-        /* Logo */
-        .logo {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            width: 140px;
-            opacity: 0;
-            animation: fadeInLogo 3s ease forwards 1.5s;
-            z-index: 3;
-        }
-
-        @keyframes fadeInLogo {
-            from { opacity: 0; }
-            to { opacity: 0.85; }
-        }
-    </style>
-</head>
-
-<body>
-
-    <!-- Chakra animé en fond -->
-    <img src="../chakra.jpg" class="chakra-bg" alt="chakra">
-
-    <!-- Panneau central -->
-    <div class="panel">
-        <div class="week">
-            <div class="day">Lundi</div>
-            <div class="day">Mardi</div>
-            <div class="day">Mercredi</div>
-            <div class="day">Jeudi</div>
-            <div class="day">Vendredi</div>
-            <div class="day">Samedi</div>
-            <div class="day">Dimanche</div>
-        </div>
-    </div>
-
-    <!-- Logo -->
-    <img src="../lotux chakra.png" class="logo" alt="logo">
-
-</body>
-</html>
-
+</style>
