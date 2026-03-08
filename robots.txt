@@ -1,1 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dylan7456.github.io/sitemap.xml
 
